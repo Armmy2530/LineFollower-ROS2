@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by
+Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="ArmmyRobotURDF3">
+  <material name="white">
+    <color rgba="1 1 1 1" />
+  </material>
+
+  <material name="orange">
+    <color rgba="1 0.3 0.1 1" />
+  </material>
+
+  <material name="blue">
+    <color rgba="0.2 0.2 1 1" />
+  </material>
+
+  <material name="black">
+    <color rgba="0 0 0 1" />
+  </material>
+
+  <material name="red">
+    <color rgba="1 0 0 1" />
+  </material>
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0400000000000001 -0.043266777600252 0.00291723321834169"
+        rpy="0 0 0" />
+      <mass
+        value="0.030878006700224" />
+      <inertia
+        ixx="2.02932362620228E-05"
+        ixy="-1.25832335260714E-10"
+        ixz="8.16086711968188E-24"
+        iyy="1.30025126577232E-05"
+        iyz="1.19787633233675E-21"
+        izz="3.31198464214527E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find gazebo_simulation)/meshes/ArmmyRobotURDF3/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find gazebo_simulation)/meshes/ArmmyRobotURDF3/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="W_L">
+    <inertial>
+      <origin
+        xyz="-2.5666E-10 0.01729 5.4676E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.015875" />
+      <inertia
+        ixx="1.9146E-06"
+        ixy="3.728E-14"
+        ixz="-6.8593E-14"
+        iyy="1.9811E-06"
+        iyz="5.8979E-09"
+        izz="1.9189E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find gazebo_simulation)/meshes/ArmmyRobotURDF3/W_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find gazebo_simulation)/meshes/ArmmyRobotURDF3/W_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="W_L_joint"
+    type="continuous">
+    <origin
+      xyz="0.006 -0.02 0.008"
+      rpy="0 0 -1.571" />
+    <parent
+      link="base_link" />
+    <child
+      link="W_L" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="W_R">
+    <inertial>
+      <origin
+        xyz="1.6413E-05 0.01729 5.2154E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.015875" />
+      <inertia
+        ixx="1.915E-06"
+        ixy="1.7706E-09"
+        ixz="1.2472E-09"
+        iyy="1.9811E-06"
+        iyz="5.6259E-09"
+        izz="1.9185E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find gazebo_simulation)/meshes/ArmmyRobotURDF3/W_R.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find gazebo_simulation)/meshes/ArmmyRobotURDF3/W_R.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="W_R_joint"
+    type="continuous">
+    <origin
+      xyz="-0.086 -0.02 0.008"
+      rpy="0 0 1.571" />
+    <parent
+      link="base_link" />
+    <child
+      link="W_R" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="CasterWheel">
+    <inertial>
+      <origin
+        xyz="5.5212E-12 -0.0046612 3.0282E-11"
+        rpy="0 0 0" />
+      <mass
+        value="0.00014516" />
+      <inertia
+        ixx="1.9274E-10"
+        ixy="2.2742E-27"
+        ixz="0"
+        iyy="1.9093E-10"
+        iyz="4.264E-27"
+        izz="1.9274E-10" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find gazebo_simulation)/meshes/ArmmyRobotURDF3/CasterWheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69412 0.098039 0.098039 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find gazebo_simulation)/meshes/ArmmyRobotURDF3/CasterWheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="CasterWheel_Joint"
+    type="fixed">
+    <origin
+      xyz="-0.04 -0.085 0"
+      rpy="1.5708 0 0.75847" />
+    <parent
+      link="base_link" />
+    <child
+      link="CasterWheel" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+
+  <!-- Camera -->
+  <joint name="camera_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="camera_link" />
+    <origin xyz="-0.04 -0.085 0.08" rpy="0 0 -1.571" />
+  </joint>
+
+  <link name="camera_link">
+    <visual>
+      <geometry>
+        <box size="0.010 0.03 0.03" />
+      </geometry>
+      <material name="red" />
+    </visual>
+  </link>
+
+  <joint name="camera_optical_joint" type="fixed">
+    <parent link="camera_link" />
+    <child link="camera_link_optical" />
+    <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}" />
+  </joint>
+
+  <link name="camera_link_optical"></link>
+
+  <!-- Gazebo camera -->
+  <gazebo reference="camera_link">
+    <material>Gazebo/Red</material>
+    <sensor name="camera" type="camera">
+      <pose> 0 0 0 0 0 0 </pose>
+      <visualize>true</visualize>
+      <update_rate>10</update_rate>
+      <camera>
+        <horizontal_fov>1.089</horizontal_fov>
+        <image>
+          <format>R8G8B8</format>
+          <width>640</width>
+          <height>480</height>
+        </image>
+        <clip>
+          <near>0.05</near>
+          <far>8.0</far>
+        </clip>
+      </camera>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <frame_name>camera_link_optical</frame_name>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <!-- Gazebo drive -->
+  <gazebo>
+    <plugin name="diff_drive" filename="libgazebo_ros_diff_drive.so">
+
+      <!-- Wheel Information -->
+      <left_joint>W_L_joint</left_joint>
+      <right_joint>W_R_joint</right_joint>
+      <wheel_separation>0.1279</wheel_separation>
+      <wheel_diameter>0.03</wheel_diameter>
+
+
+      <!-- Limits -->
+      <max_wheel_torque>200</max_wheel_torque>
+      <max_wheel_acceleration>10.0</max_wheel_acceleration>
+
+
+      <!-- Output -->
+      <odometry_frame>odom</odometry_frame>
+      <robot_base_frame>base_link</robot_base_frame>
+
+      <publish_odom>true</publish_odom>
+      <publish_odom_tf>true</publish_odom_tf>
+      <publish_wheel_tf>true</publish_wheel_tf>
+
+    </plugin>
+  </gazebo>
+
+
+</robot>

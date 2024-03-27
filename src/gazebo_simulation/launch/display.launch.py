@@ -11,10 +11,6 @@ def generate_launch_description():
     default_model_path = PathJoinSubstitution(['urdf', 'armmyRobot2.urdf'])
     default_rviz_config_path = PathJoinSubstitution([urdf_tutorial_path, 'rviz', 'urdf.rviz'])
 
-    # These parameters are maintained for backwards compatibility
-    gui_arg = DeclareLaunchArgument(name='gui', default_value='true', choices=['true', 'false'],
-                                    description='Flag to enable joint_state_publisher_gui')
-    ld.add_action(gui_arg)
     rviz_arg = DeclareLaunchArgument(name='rvizconfig', default_value=default_rviz_config_path,
                                      description='Absolute path to rviz config file')
     ld.add_action(rviz_arg)
@@ -28,8 +24,7 @@ def generate_launch_description():
         launch_arguments={
             'urdf_package': 'gazebo_simulation',
             'urdf_package_path': LaunchConfiguration('model'),
-            'rviz_config': LaunchConfiguration('rvizconfig'),
-            'jsp_gui': LaunchConfiguration('gui')}.items()
+            'rviz_config': LaunchConfiguration('rvizconfig')}.items()
     ))
 
     return ld

@@ -6,18 +6,12 @@ from launch_ros.substitutions import FindPackageShare
 
 def generate_launch_description():
     ld = LaunchDescription()
-
     urdf_tutorial_path = FindPackageShare('gazebo_simulation')
     default_model_path = PathJoinSubstitution(['urdf', 'armmyRobot2.urdf'])
     default_rviz_config_path = PathJoinSubstitution([urdf_tutorial_path, 'rviz', 'urdf.rviz'])
 
-    # These parameters are maintained for backwards compatibility
-    gui_arg = DeclareLaunchArgument(name='gui', default_value='true', choices=['true', 'false'],
-                                    description='Flag to enable joint_state_publisher_gui')
-    ld.add_action(gui_arg)
-    rviz_arg = DeclareLaunchArgument(name='rvizconfig', default_value=default_rviz_config_path,
-                                     description='Absolute path to rviz config file')
-    ld.add_action(rviz_arg)
+    ld.add_action(DeclareLaunchArgument(name='rvizconfig', default_value=default_rviz_config_path,
+                                     description='Absolute path to rviz config file'))
 
     # This parameter has changed its meaning slightly from previous versions
     ld.add_action(DeclareLaunchArgument(name='model', default_value=default_model_path,
@@ -28,12 +22,11 @@ def generate_launch_description():
                                         description='Use sim time if true'))
        
     ld.add_action(IncludeLaunchDescription(
-        PathJoinSubstitution([FindPackageShare('urdf_launch'), 'launch', 'display.launch.py']),
+        PathJoinSubstitution([FindPackageShare('urdf_launch'), 'launch', 'description.launch.py']),
         launch_arguments={
             'urdf_package': 'gazebo_simulation',
             'urdf_package_path': LaunchConfiguration('model'),
             'rviz_config': LaunchConfiguration('rvizconfig'),
-            'jsp_gui': LaunchConfiguration('gui'),
             'use_sim_time' : LaunchConfiguration('sim_time')
             }.items()
     ))
