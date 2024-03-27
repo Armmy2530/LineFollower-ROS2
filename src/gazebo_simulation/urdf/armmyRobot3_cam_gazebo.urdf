@@ -229,7 +229,7 @@ Stephen Brawner (brawner@gmail.com)
   <joint name="camera_joint" type="fixed">
     <parent link="base_link" />
     <child link="camera_link" />
-    <origin xyz="-0.04 -0.085 0.08" rpy="0 0 -1.571" />
+    <origin xyz="-0.04 -0.085 0.12" rpy="0 0.2 -1.571" />
   </joint>
 
   <link name="camera_link">
