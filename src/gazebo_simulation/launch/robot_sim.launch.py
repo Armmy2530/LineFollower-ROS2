@@ -14,7 +14,7 @@ def generate_launch_description():
                          'worlds', world_file_name)
     launch_file_dir = os.path.join(get_package_share_directory('gazebo_simulation'), 'launch')
     pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
-    pkg_four_ws_control = get_package_share_directory('four_ws_control')
+    # pkg_four_ws_control = get_package_share_directory('four_ws_control')
 
     gzserver = IncludeLaunchDescription(
             PythonLaunchDescriptionSource(
@@ -29,11 +29,11 @@ def generate_launch_description():
             ),
         )
 
-    controller = IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(
-                os.path.join(pkg_four_ws_control, 'launch', 'four_ws_control.launch.py')
-            ),
-        )
+    # controller = IncludeLaunchDescription(
+    #         PythonLaunchDescriptionSource(
+    #             os.path.join(pkg_four_ws_control, 'launch', 'four_ws_control.launch.py')
+    #         ),
+    #     )
 
     robot_state_publisher = IncludeLaunchDescription(
             PythonLaunchDescriptionSource([launch_file_dir, '/robot_state_publisher.launch.py']),
@@ -62,7 +62,7 @@ def generate_launch_description():
         gzclient, 
         robot_state_publisher,
         joy_node,
-        controller,
+        # controller,
         forward_position_controller,
         forward_velocity_controller,
         joint_state_broadcaster

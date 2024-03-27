@@ -88,7 +88,7 @@ Stephen Brawner (brawner@gmail.com)
     type="continuous">
     <origin
       xyz="0.006 -0.02 0.008"
-      rpy="-3.1416 0.85417 1.5708" />
+      rpy="0 0 -1.571" />
     <parent
       link="base_link" />
     <child
@@ -141,7 +141,7 @@ Stephen Brawner (brawner@gmail.com)
     type="continuous">
     <origin
       xyz="-0.086 -0.02 0.008"
-      rpy="0 0.38986 1.5708" />
+      rpy="0 0 1.571" />
     <parent
       link="base_link" />
     <child

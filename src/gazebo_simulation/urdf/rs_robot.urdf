@@ -15,12 +15,12 @@
   <link name="base_link">
     <visual>
       <geometry>
-        <mesh filename="package://robot_description/meshes/DAE/base/base_link.dae"/>
+        <mesh filename="package://gazebo_simulation/models/rs_robot/meshes/DAE/base/base_link.dae"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robot_description/meshes/STL/base/base_link.stl"/>
+        <mesh filename="package://gazebo_simulation/models/rs_robot/meshes/STL/base/base_link.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -39,12 +39,12 @@
   <link name="fr_steering_link">
     <visual>
       <geometry>
-        <mesh filename="package://robot_description/meshes/DAE/suspension/front_right_link.dae"/>
+        <mesh filename="package://gazebo_simulation/models/rs_robot/meshes/DAE/suspension/front_right_link.dae"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robot_description/meshes/STL/suspension/sus_link.stl"/>
+        <mesh filename="package://gazebo_simulation/models/rs_robot/meshes/STL/suspension/sus_link.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -63,12 +63,12 @@
   <link name="fl_steering_link">
     <visual>
       <geometry>
-        <mesh filename="package://robot_description/meshes/DAE/suspension/front_left_link.dae"/>
+        <mesh filename="package://gazebo_simulation/models/rs_robot/meshes/DAE/suspension/front_left_link.dae"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robot_description/meshes/STL/suspension/sus_link.stl"/>
+        <mesh filename="package://gazebo_simulation/models/rs_robot/meshes/STL/suspension/sus_link.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -87,12 +87,12 @@
   <link name="rr_steering_link">
     <visual>
       <geometry>
-        <mesh filename="package://robot_description/meshes/DAE/suspension/rear_right_link.dae"/>
+        <mesh filename="package://gazebo_simulation/models/rs_robot/meshes/DAE/suspension/rear_right_link.dae"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robot_description/meshes/STL/suspension/sus_link.stl"/>
+        <mesh filename="package://gazebo_simulation/models/rs_robot/meshes/STL/suspension/sus_link.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -111,12 +111,12 @@
   <link name="rl_steering_link">
     <visual>
       <geometry>
-        <mesh filename="package://robot_description/meshes/DAE/suspension/rear_left_link.dae"/>
+        <mesh filename="package://gazebo_simulation/models/rs_robot/meshes/DAE/suspension/rear_left_link.dae"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robot_description/meshes/STL/suspension/sus_link.stl"/>
+        <mesh filename="package://gazebo_simulation/models/rs_robot/meshes/STL/suspension/sus_link.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -135,12 +135,12 @@
   <link name="fr_wheel_link">
     <visual>
       <geometry>
-        <mesh filename="package://robot_description/meshes/DAE/wheel/wheel_link.dae"/>
+        <mesh filename="package://gazebo_simulation/models/rs_robot/meshes/DAE/wheel/wheel_link.dae"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robot_description/meshes/STL/wheel/robot_wheel.stl"/>
+        <mesh filename="package://gazebo_simulation/models/rs_robot/meshes/STL/wheel/robot_wheel.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -159,12 +159,12 @@
   <link name="fl_wheel_link">
     <visual>
       <geometry>
-        <mesh filename="package://robot_description/meshes/DAE/wheel/wheel_link.dae"/>
+        <mesh filename="package://gazebo_simulation/models/rs_robot/meshes/DAE/wheel/wheel_link.dae"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robot_description/meshes/STL/wheel/robot_wheel.stl"/>
+        <mesh filename="package://gazebo_simulation/models/rs_robot/meshes/STL/wheel/robot_wheel.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -183,12 +183,12 @@
   <link name="rr_wheel_link">
     <visual>
       <geometry>
-        <mesh filename="package://robot_description/meshes/DAE/wheel/wheel_link.dae"/>
+        <mesh filename="package://gazebo_simulation/models/rs_robot/meshes/DAE/wheel/wheel_link.dae"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robot_description/meshes/STL/wheel/robot_wheel.stl"/>
+        <mesh filename="package://gazebo_simulation/models/rs_robot/meshes/STL/wheel/robot_wheel.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -207,12 +207,12 @@
   <link name="rl_wheel_link">
     <visual>
       <geometry>
-        <mesh filename="package://robot_description/meshes/DAE/wheel/wheel_link.dae"/>
+        <mesh filename="package://gazebo_simulation/models/rs_robot/meshes/DAE/wheel/wheel_link.dae"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://robot_description/meshes/STL/wheel/robot_wheel.stl"/>
+        <mesh filename="package://gazebo_simulation/models/rs_robot/meshes/STL/wheel/robot_wheel.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -305,4 +305,3 @@
   </ros2_control>
 
 </robot>
-

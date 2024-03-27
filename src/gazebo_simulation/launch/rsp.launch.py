@@ -1,41 +1,41 @@
-import os
-
-from ament_index_python.packages import get_package_share_directory
-
 from launch import LaunchDescription
-from launch.substitutions import LaunchConfiguration
-from launch.actions import DeclareLaunchArgument
-from launch_ros.actions import Node
-
-import xacro
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+from launch_ros.substitutions import FindPackageShare
 
 
 def generate_launch_description():
+    ld = LaunchDescription()
 
-    # Check if we're told to use sim time
-    use_sim_time = LaunchConfiguration('use_sim_time')
+    urdf_tutorial_path = FindPackageShare('gazebo_simulation')
+    default_model_path = PathJoinSubstitution(['urdf', 'armmyRobot2.urdf'])
+    default_rviz_config_path = PathJoinSubstitution([urdf_tutorial_path, 'rviz', 'urdf.rviz'])
 
-    # Process the URDF file
-    pkg_path = os.path.join(get_package_share_directory('gazebo_simulation'))
-    xacro_file = os.path.join(pkg_path,'description','robot.urdf.xacro')
-    robot_description_config = xacro.process_file(xacro_file)
-    
-    # Create a robot_state_publisher node
-    params = {'robot_description': robot_description_config.toxml(), 'use_sim_time': use_sim_time}
-    node_robot_state_publisher = Node(
-        package='robot_state_publisher',
-        executable='robot_state_publisher',
-        output='screen',
-        parameters=[params]
-    )
+    # These parameters are maintained for backwards compatibility
+    gui_arg = DeclareLaunchArgument(name='gui', default_value='true', choices=['true', 'false'],
+                                    description='Flag to enable joint_state_publisher_gui')
+    ld.add_action(gui_arg)
+    rviz_arg = DeclareLaunchArgument(name='rvizconfig', default_value=default_rviz_config_path,
+                                     description='Absolute path to rviz config file')
+    ld.add_action(rviz_arg)
 
+    # This parameter has changed its meaning slightly from previous versions
+    ld.add_action(DeclareLaunchArgument(name='model', default_value=default_model_path,
+                                        description='Path to robot urdf file relative to urdf_tutorial package'))
+                                        
+    #  This parameter has changed its meaning slightly from previous versions
+    ld.add_action(DeclareLaunchArgument(name='sim_time', default_value='false', choices=['true', 'false'],
+                                        description='Use sim time if true'))
+       
+    ld.add_action(IncludeLaunchDescription(
+        PathJoinSubstitution([FindPackageShare('urdf_launch'), 'launch', 'display.launch.py']),
+        launch_arguments={
+            'urdf_package': 'gazebo_simulation',
+            'urdf_package_path': LaunchConfiguration('model'),
+            'rviz_config': LaunchConfiguration('rvizconfig'),
+            'jsp_gui': LaunchConfiguration('gui'),
+            'use_sim_time' : LaunchConfiguration('sim_time')
+            }.items()
+    ))
 
-    # Launch!
-    return LaunchDescription([
-        DeclareLaunchArgument(
-            'use_sim_time',
-            default_value='false',
-            description='Use sim time if true'),
-
-        node_robot_state_publisher
-    ])
+    return ld
