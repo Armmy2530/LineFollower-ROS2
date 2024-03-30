@@ -7,7 +7,7 @@ from launch_ros.substitutions import FindPackageShare
 def generate_launch_description():
     ld = LaunchDescription()
     urdf_tutorial_path = FindPackageShare('gazebo_simulation')
-    default_model_path = PathJoinSubstitution(['urdf', 'armmyRobot2.urdf'])
+    default_model_path = PathJoinSubstitution(['urdf', 'armmyRobot3_cam_gazebo.urdf'])
     default_rviz_config_path = PathJoinSubstitution([urdf_tutorial_path, 'rviz', 'urdf.rviz'])
 
     ld.add_action(DeclareLaunchArgument(name='rvizconfig', default_value=default_rviz_config_path,
