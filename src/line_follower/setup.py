@@ -21,7 +21,8 @@ setup(
     entry_points={
         'console_scripts': [
             'my_node = line_follower.my_node:main',
-            'image_pub = line_follower.image_pub:main'
+            'image_pub = line_follower.image_pub:main',
+            'image_sub = line_follower.image_sub:main'
         ],
     },
 )

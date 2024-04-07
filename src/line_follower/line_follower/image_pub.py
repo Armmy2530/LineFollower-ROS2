@@ -3,29 +3,28 @@ from rclpy.node import Node # Handles the creation of nodes
 from sensor_msgs.msg import Image # Image is the message type
 from cv_bridge import CvBridge # Package to convert between ROS and OpenCV Images
 import cv2 # OpenCV library
+import line_follower.image_process
  
 class ImagePublisher(Node):
     def __init__(self):
         super().__init__('image_pub')
         
         self.publisher_ = self.create_publisher(Image, 'test_image', 10)
-
         # Create a VideoCapture object
         # The argument '0' gets the default webcam.
-        self.img = cv2.imread('line_follower/data/test_data/1.png')
-        
+        self.img = cv2.imread('/root/armmyCameraRobot/armmyRobot/src/line_follower/data/test_data/1.png')
+      
         # Used to convert between ROS and OpenCV images
         self.br = CvBridge()
+      
+        # We will publish a message every 0.1 seconds
+        timer_period = 0.1  # seconds
         
-        self.test_pub()
-        
+        # Create the timer
+        self.timer = self.create_timer(timer_period, self.test_pub)
     
     def test_pub(self):
-        cv2.imshow('image',self.img)
-        cv2.waitKey(1)
-        cv2.destroyAllWindows()
-
-        self.publisher_.publish(self.br.cv2_to_imgmsg(self.img))
+        self.publisher_.publish(self.br.cv2_to_imgmsg(self.img,encoding='rgb8'))
         self.get_logger().info('Publishing image')
 
 
