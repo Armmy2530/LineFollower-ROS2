@@ -1,4 +1,5 @@
 from setuptools import find_packages, setup
+from glob import glob
 
 package_name = 'line_follower'
 
@@ -10,6 +11,7 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        ('share/' + package_name + '/config', glob('config/*.yaml')),
     ],
     package_data={'': ['msg/*.msg']},
     install_requires=['setuptools'],
@@ -21,9 +23,9 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'my_node = line_follower.my_node:main',
             'image_pub = line_follower.image_pub:main',
-            'image_sub = line_follower.image_sub:main'
+            'image_sub = line_follower.image_sub:main',
+            'pid_tracing = line_follower.pid_follow:main'
         ],
     },
 )

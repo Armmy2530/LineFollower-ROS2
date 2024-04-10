@@ -1,0 +1,7 @@
+line_tracing_robot:
+  ros__parameters:
+    kp: 1
+    ki: 1
+    kd: 1
+    base_speed: 1
+    

@@ -28,11 +28,17 @@ def generate_launch_description():
     world_file_name = 'line_track.world'
     world_path = os.path.join(pkg_share, 'worlds', world_file_name)
     world = LaunchConfiguration('world')
+    gazebo_verbose = LaunchConfiguration('verbose')
 
     declare_world_cmd = DeclareLaunchArgument(
         name='world',
         default_value=world_path,
         description='Full path to the world model file to load')
+    
+    declare_gzverbose_cmd = DeclareLaunchArgument(
+        name='verbose',
+        default_value='false',
+        description='Gazebo client verbose')
 
     rsp = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
@@ -45,7 +51,7 @@ def generate_launch_description():
                 PythonLaunchDescriptionSource([os.path.join(
                     get_package_share_directory(package_name),'launch','load_world_gazebo.launch.py'
                     )]), 
-                    launch_arguments={'world': world,'verbose' : 'false'}.items()
+                    launch_arguments={'world': world,'verbose' : gazebo_verbose}.items()
              )
 
     # Run the spawner node from the gazebo_ros package. The entity name doesn't really matter if you only have a single robot.
@@ -65,6 +71,7 @@ def generate_launch_description():
     # Launch them all!
     return LaunchDescription([
         declare_world_cmd,
+        declare_gzverbose_cmd,
         rsp,
         gazebo,
         spawn_entity,
