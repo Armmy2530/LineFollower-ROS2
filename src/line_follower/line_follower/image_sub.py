@@ -11,7 +11,7 @@ from sensor_msgs.msg import Image # Image is the message type
 from geometry_msgs.msg      import Point
 from cv_bridge import CvBridge # Package to convert between ROS and OpenCV Images
 import cv2 # OpenCV library
-import line_follower.image_process as line_imp
+import line_follower.image_process as line_impf
  
 class ImageSubscriber(Node):
   """

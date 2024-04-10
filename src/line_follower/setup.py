@@ -11,6 +11,7 @@ setup(
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
     ],
+    package_data={'': ['msg/*.msg']},
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='armmy2530',
